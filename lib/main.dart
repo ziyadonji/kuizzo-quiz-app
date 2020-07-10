@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kuizzo/Question.dart';
+import 'package:kuizzo/answer.dart';
 
 void main() {
   runApp(MyApp());
@@ -46,11 +47,10 @@ class _MyAppState extends State<MyApp> {
                   padding: const EdgeInsets.fromLTRB(0,50,0,0),
                   child: Question(questions[_index],),
                 ),
-                SizedBox(height:50),
-                RaisedButton(onPressed:_answerQuestion ,child: Text('answer1'),),
-                RaisedButton(onPressed:_answerQuestion,child: Text('answer2'),),
-                RaisedButton(onPressed:_answerQuestion,child: Text('answer3'),),
-
+                SizedBox(height:30),
+                Answer(_answerQuestion),
+                Answer(_answerQuestion),
+                Answer(_answerQuestion),
               ],
             ),
           
