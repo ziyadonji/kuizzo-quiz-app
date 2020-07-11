@@ -14,7 +14,7 @@ class Answer extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 30,vertical: 5),
       
       width: double.infinity,
-      child: RaisedButton(onPressed: answerQuestion,color: Colors.cyan,elevation: 10,splashColor: Colors.deepPurple,
+      child: RaisedButton(onPressed:answerQuestion,color: Colors.cyan,elevation: 10,splashColor: Colors.deepPurple,
       child: Text(answer),)
       ,
       

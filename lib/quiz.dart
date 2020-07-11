@@ -23,7 +23,7 @@ class Quiz extends StatelessWidget {
                 ),
                 SizedBox(height:30),
                 ...(_questions[_index]["answer"]as List).map((element){
-                  return  Answer(element,_answerQuestion);
+                  return  Answer(element['text'],()=>_answerQuestion(element['score']));
 
                 }).toList(),
                 

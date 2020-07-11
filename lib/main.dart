@@ -14,30 +14,63 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _index = 0;
+  
 
   var _questions = [
     {
       "questionText": 'what is your favourite color',
-      "answer": ['red', 'blue', 'green', 'orange']
+      "answer": [
+        {'text': 'black', 'score': 10},
+        {'text': 'red', 'score': 8},
+        {'text': 'green', 'score': 4},
+        {'text': 'white', 'score': 1}
+      ]
     },
     {
       "questionText": 'what is your favourite animal',
-      "answer": ['lion', 'tiger', 'elephant', 'goat']
+      "answer": [
+        {'text': 'snake', 'score': 10},
+        {'text': 'tiger', 'score': 7},
+        {'text': 'dog', 'score': 3},
+        {'text': 'cat', 'score': 2}
+      ]
     },
     {
-      "questionText": 'what is your favourite singer',
-      "answer": ['arman', 'arijit', 'atif', 'zayn']
+      "questionText": 'what is your favourite game',
+      "answer": [
+        {'text': 'PUBG', 'score': 10},
+        {'text': "mini militia", 'score': 9},
+        {'text': 'ludo', 'score': 4},
+        {'text': 'racing', 'score': 1}
+      ]
+    },
+    {
+      "questionText": "what is your favorite drink",
+      "answer": [
+        {'text': 'vodka', 'score': 10},
+        {'text': 'carbonated drinks', 'score': 8},
+        {'text': 'shake', 'score': 5},
+        {'text': 'water', 'score': 1}
+      ]
     },
     {
       "questionText": "what is your favorite person",
-      "answer": ['ziyad', 'onji', 'ziyad', 'onji']
+      "answer": [
+        {'text': 'ziyad', 'score': 1},
+        {'text': 'onji', 'score': 1},
+        {'text': 'ziyad', 'score': 1},
+        {'text': 'onji', 'score': 1}
+      ]
     },
   ];
+  var _totalScore =0;
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
     setState(() {
+      _totalScore+=score;
       _index += 1;
     });
+    print(_totalScore);
 
     print(_index);
   }
@@ -58,7 +91,7 @@ class _MyAppState extends State<MyApp> {
             Images(),
             _index < _questions.length
                 ? Quiz(_index, _answerQuestion, _questions)
-                : Result(),
+                : Result(_totalScore),
           ],
         ),
       ),
