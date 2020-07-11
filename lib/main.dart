@@ -14,7 +14,29 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _index=0;
 
-  var questions=['what is your favourite color','what is your favourite animal','what is your favourite singer'];
+   var questions=[
+    {
+      "questionText":'what is your favourite color',
+      "answer":['red','blue','green','orange']
+
+    },
+    {
+        "questionText":'what is your favourite animal',
+         "answer":['lion','tiger','elephant','goat']
+    },
+    {
+          "questionText":'what is your favourite singer',
+          "answer":['arman','arijit','atif','zayn']
+          
+
+    },
+    {
+            "questionText":"what is your favorite person",
+            "answer":['ziyad','onji','ziyad','onji']
+    },
+    
+    
+    ];
 
   void _answerQuestion(){
     setState(() {
@@ -30,7 +52,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         
-        appBar: AppBar(title: Text('Kuizzo'),
+        appBar: AppBar(title: Text('Kuizzo',),
         backgroundColor: Colors.cyan[600],
         centerTitle: true,),
         body: Stack(children: <Widget>[
@@ -45,12 +67,14 @@ class _MyAppState extends State<MyApp> {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0,50,0,0),
-                  child: Question(questions[_index],),
+                  child: Question(questions[_index]["questionText"],),
                 ),
                 SizedBox(height:30),
-                Answer(_answerQuestion),
-                Answer(_answerQuestion),
-                Answer(_answerQuestion),
+                ...(questions[_index]["answer"]as List).map((element){
+                  return  Answer(element,_answerQuestion);
+
+                }).toList(),
+                
               ],
             ),
           
